@@ -4,6 +4,9 @@ import fr.kienanbachwa.instantnews.data.models.requests.HeadlinesRequest
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * News service containing retrofit queries
+ */
 interface NewsService {
 
     @GET("/v2/top-headlines")

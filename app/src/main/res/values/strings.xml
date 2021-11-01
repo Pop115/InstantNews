@@ -11,4 +11,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="placeholder_news_title">News title</string>
     <string name="placeholder_news_description">News description</string>
+    <string name="open_source_news">Accéder à la source</string>
 </resources>

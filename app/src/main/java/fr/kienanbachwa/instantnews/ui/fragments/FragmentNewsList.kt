@@ -28,17 +28,11 @@ class FragmentNewsList : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNewsListBinding.inflate(inflater, container, false)
-
-        binding.newsRecycler.adapter = NewsAdapter()
+        binding.newsRecycler.adapter =
+            NewsAdapter(fragmentManager = this.requireActivity().supportFragmentManager)
         binding.newsRecycler.layoutManager = LinearLayoutManager(this.context)
-
         getNewsList()
-
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
@@ -47,15 +41,20 @@ class FragmentNewsList : Fragment() {
     }
 
 
+    /**
+     * Request the news in a coroutine and add them to the recycler adapter
+     */
     private fun getNewsList() {
-        activity?.runOnUiThread{
-            CoroutineScope(Dispatchers.IO).launch {
-                val headlinesRequest = newsRepository?.requestTopHeadlines()
-                if (headlinesRequest != null) {
-                    val newsAdapter = (binding.newsRecycler.adapter as NewsAdapter)
-                    newsAdapter.addNews(headlinesRequest.articles)
-                }
+
+        //On Dispatchers.Main because we update the UI
+        CoroutineScope(Dispatchers.Main).launch {
+            val headlinesRequest = newsRepository?.requestTopHeadlines()
+            if (headlinesRequest != null) {
+                val newsAdapter = (binding.newsRecycler.adapter as NewsAdapter)
+                newsAdapter.addNews(headlinesRequest.articles)
+                binding.loadingIndicator.visibility = View.GONE;
             }
         }
+
     }
 }
