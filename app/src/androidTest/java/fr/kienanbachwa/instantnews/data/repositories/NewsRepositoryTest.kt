@@ -23,9 +23,9 @@ class NewsRepositoryTest {
         val newsService = retrofit.create(NewsService::class.java)
 
         CoroutineScope(Dispatchers.Main).launch {
-            val headlinesRequest = newsService.requestTopHeadlines()
-            assertNotNull(headlinesRequest)
-            assertNotNull(headlinesRequest.articles)
+            val everythingRequest = newsService.requestEverything()
+            assertNotNull(everythingRequest)
+            assertNotNull(everythingRequest.articles)
         }
     }
 

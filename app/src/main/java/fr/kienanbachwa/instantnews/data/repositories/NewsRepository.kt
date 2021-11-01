@@ -1,7 +1,7 @@
 package fr.kienanbachwa.instantnews.data.repositories
 
 import fr.kienanbachwa.instantnews.MainActivity
-import fr.kienanbachwa.instantnews.data.models.requests.HeadlinesRequest
+import fr.kienanbachwa.instantnews.data.models.requests.EverythingRequest
 import fr.kienanbachwa.instantnews.data.services.NewsService
 import retrofit2.HttpException
 import java.util.logging.Logger
@@ -14,9 +14,9 @@ class NewsRepository {
         MainActivity.retrofitSingleton.create(NewsService::class.java)
     }
 
-    suspend fun requestTopHeadlines(): HeadlinesRequest? {
+    suspend fun requestTopHeadlines(): EverythingRequest? {
         try {
-            return newsService.requestTopHeadlines()
+            return newsService.requestEverything()
         } catch (e: HttpException) {
             logger.warning(e.message())
         }

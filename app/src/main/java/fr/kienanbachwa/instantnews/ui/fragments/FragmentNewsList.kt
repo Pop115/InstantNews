@@ -47,10 +47,10 @@ class FragmentNewsList : Fragment() {
 
         //On Dispatchers.Main because we update the UI
         CoroutineScope(Dispatchers.Main).launch {
-            val headlinesRequest = newsRepository?.requestTopHeadlines()
-            if (headlinesRequest != null) {
+            val everythingRequest = newsRepository?.requestTopHeadlines()
+            if (everythingRequest != null) {
                 val newsAdapter = (binding.newsRecycler.adapter as NewsAdapter)
-                newsAdapter.addNews(headlinesRequest.articles)
+                newsAdapter.addNews(everythingRequest.articles)
                 binding.loadingIndicator.visibility = View.GONE
             }
         }
