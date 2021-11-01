@@ -32,7 +32,9 @@ class FragmentNewsDetail(private val news: News) : Fragment() {
         binding.newsTitle.text = this.news.title?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_COMPACT) }
         binding.newsDescription.text = this.news.content?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
 
-        Glide.with(binding.newsPicture).load(news.urlToImage).into(binding.newsPicture)
+        if(news.urlToImage?.startsWith("http") == false) {//don't request http cleartext url
+            Glide.with(binding.newsPicture).load(news.urlToImage).into(binding.newsPicture)
+        }
 
         return binding.root
     }

@@ -29,7 +29,9 @@ class NewsAdapter(
         holder.newsDescription.text = newsItem.description?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_COMPACT) }
 
         //using the Glide library to load the picture asynchronously (https://github.com/bumptech/glide)
-        Glide.with(holder.itemView).load(newsItem.urlToImage).into(holder.newsPicture)
+        if(newsItem.urlToImage?.startsWith("http") == false){//don't request http cleartext url
+            Glide.with(holder.itemView).load(newsItem.urlToImage).into(holder.newsPicture)
+        }
 
         holder.newsCard.setOnClickListener { openNewsDetail(newsItem) }
     }

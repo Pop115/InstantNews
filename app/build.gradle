@@ -44,6 +44,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'junit:junit'
+    implementation "org.jetbrains.kotlin:kotlin-test-junit"
 
     /**
      * glide api to load pictures
