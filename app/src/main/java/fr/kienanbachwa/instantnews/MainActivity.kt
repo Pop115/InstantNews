@@ -2,7 +2,6 @@ package fr.kienanbachwa.instantnews
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.ui.AppBarConfiguration
 import fr.kienanbachwa.instantnews.data.services.RetrofitBuilder
 import fr.kienanbachwa.instantnews.databinding.ActivityMainBinding
 import retrofit2.Retrofit
@@ -13,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         lateinit var retrofitSingleton: Retrofit//retrofit singleton instance, used to call other services in the application
     }
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

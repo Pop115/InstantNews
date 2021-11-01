@@ -2,8 +2,6 @@
 <resources>
     <color name="blue_primary">#5192e7</color>
     <color name="blue_secondary">#4c84d9</color>
-    <color name="blue_third">#354493</color>
     <color name="dark_grey">#444</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="snow">#E8E8E8</color>
 </resources>

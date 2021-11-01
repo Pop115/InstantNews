@@ -11,9 +11,10 @@ import fr.kienanbachwa.instantnews.data.models.News
 import fr.kienanbachwa.instantnews.ui.fragments.FragmentNewsDetail
 
 class NewsAdapter(
-    private val newsList: MutableList<News> = mutableListOf<News>(),
     private val fragmentManager: FragmentManager
 ) : RecyclerView.Adapter<NewsViewHolder>() {
+
+    private val newsList: MutableList<News> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
@@ -29,7 +30,7 @@ class NewsAdapter(
         holder.newsDescription.text = newsItem.description?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_COMPACT) }
 
         //using the Glide library to load the picture asynchronously (https://github.com/bumptech/glide)
-        if(newsItem.urlToImage?.startsWith("http") == false){//don't request http cleartext url
+        if(newsItem.urlToImage?.startsWith("http://") == false){//don't request http cleartext url
             Glide.with(holder.itemView).load(newsItem.urlToImage).into(holder.newsPicture)
         }
 
@@ -37,7 +38,7 @@ class NewsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return newsList.size;
+        return newsList.size
     }
 
     fun addNews(newNewsList: List<News>) {

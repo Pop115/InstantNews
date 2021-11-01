@@ -6,9 +6,9 @@ import fr.kienanbachwa.instantnews.data.services.NewsService
 import retrofit2.HttpException
 import java.util.logging.Logger
 
-class NewsRepository() {
+class NewsRepository {
 
-    private val LOGGER: Logger = Logger.getLogger(this.javaClass.name)
+    private val logger: Logger = Logger.getLogger(this.javaClass.name)
 
     private val newsService: NewsService by lazy {
         MainActivity.retrofitSingleton.create(NewsService::class.java)
@@ -18,7 +18,7 @@ class NewsRepository() {
         try {
             return newsService.requestTopHeadlines()
         } catch (e: HttpException) {
-            LOGGER.warning(e.message())
+            logger.warning(e.message())
         }
         return null
     }

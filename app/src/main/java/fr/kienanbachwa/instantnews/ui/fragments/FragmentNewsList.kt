@@ -28,8 +28,7 @@ class FragmentNewsList : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNewsListBinding.inflate(inflater, container, false)
-        binding.newsRecycler.adapter =
-            NewsAdapter(fragmentManager = this.requireActivity().supportFragmentManager)
+        binding.newsRecycler.adapter = NewsAdapter(fragmentManager = this.requireActivity().supportFragmentManager)
         binding.newsRecycler.layoutManager = LinearLayoutManager(this.context)
         getNewsList()
         return binding.root
@@ -52,7 +51,7 @@ class FragmentNewsList : Fragment() {
             if (headlinesRequest != null) {
                 val newsAdapter = (binding.newsRecycler.adapter as NewsAdapter)
                 newsAdapter.addNews(headlinesRequest.articles)
-                binding.loadingIndicator.visibility = View.GONE;
+                binding.loadingIndicator.visibility = View.GONE
             }
         }
 
