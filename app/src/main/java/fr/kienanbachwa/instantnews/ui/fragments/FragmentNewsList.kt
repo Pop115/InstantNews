@@ -47,7 +47,7 @@ class FragmentNewsList : Fragment() {
 
         //On Dispatchers.Main because we update the UI
         CoroutineScope(Dispatchers.Main).launch {
-            val everythingRequest = newsRepository?.requestTopHeadlines()
+            val everythingRequest = newsRepository?.requestEverythingFromFrenchSources()
             if (everythingRequest != null) {
                 val newsAdapter = (binding.newsRecycler.adapter as NewsAdapter)
                 newsAdapter.addNews(everythingRequest.articles)

@@ -15,7 +15,7 @@ object RetrofitBuilder {
      */
     fun createRetrofitInstance(context: Context): Retrofit {
         val retrofitBuilder = Retrofit.Builder()
-        retrofitBuilder.baseUrl(context.getString(R.string.news_url))
+        retrofitBuilder.baseUrl(context.getString(R.string.news_url))//could be configurable if we add other sources
         configConverter(retrofitBuilder)
         configAPIKey(retrofitBuilder, context)
         return retrofitBuilder.build()

@@ -14,5 +14,5 @@ interface NewsService {
     suspend fun requestTopHeadlines(@Query("language") language : String = "fr", @Query("country") country : String = "fr") : HeadlinesRequest
 
     @GET("/v2/everything")
-    suspend fun requestEverything(@Query("language") language : String = "fr", @Query("country") country : String = "fr") : EverythingRequest
+    suspend fun requestEverything(@Query("language") language : String = "fr", @Query("sources") sources : String) : EverythingRequest
 }
