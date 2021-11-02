@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * News service containing retrofit queries
+ * Source service containing retrofit queries
  */
 interface SourceService {
 

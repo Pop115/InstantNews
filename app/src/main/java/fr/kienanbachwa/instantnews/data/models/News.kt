@@ -1,5 +1,8 @@
 package fr.kienanbachwa.instantnews.data.models
 
+/**
+ * News data object
+ */
 data class News(
     val author: String?,
     val title: String?,

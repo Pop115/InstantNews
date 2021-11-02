@@ -1,5 +1,8 @@
 package fr.kienanbachwa.instantnews.data.models
 
+/**
+ * Source data object
+ */
 data class Source(
     val id: String,
     val name: String?,

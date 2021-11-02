@@ -13,7 +13,7 @@ import fr.kienanbachwa.instantnews.data.models.News
 import fr.kienanbachwa.instantnews.databinding.FragmentNewsDetailBinding
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * Fragment displaying the details of a news
  */
 class FragmentNewsDetail(private val news: News) : Fragment() {
 
@@ -45,6 +45,9 @@ class FragmentNewsDetail(private val news: News) : Fragment() {
         _binding = null
     }
 
+    /**
+     * Open the source of the news in an external browser
+     */
     private fun redirectToNewsUrl() {
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(news.url))
         startActivity(browserIntent)

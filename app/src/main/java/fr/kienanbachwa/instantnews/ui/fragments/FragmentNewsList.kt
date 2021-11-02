@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Fragment displaying the list of news in a recyclerview
  */
 class FragmentNewsList : Fragment() {
 

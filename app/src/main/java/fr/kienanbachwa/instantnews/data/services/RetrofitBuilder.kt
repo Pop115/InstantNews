@@ -8,6 +8,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * Builder for the retrofit instance, configure the converters and api key
+ */
 object RetrofitBuilder {
 
     /**
